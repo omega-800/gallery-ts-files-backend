@@ -33,3 +33,4 @@ coverage
 /preview/*
 
 .env
+ffmpeg
