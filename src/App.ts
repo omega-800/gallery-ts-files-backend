@@ -127,8 +127,8 @@ app.get(process.env.ENDPOINT_CREATECROP as string + '/:file', async (req, res) =
             return;
         }
         res.write(`data: ${JSON.stringify({ percent: 100, msg: 'Preview generation done', data: fileInfo })}\n\n`)
-        res.end()
         sendErrorSSE(res, 414, `Connection is lasting too long`)
+        res.end()
     } catch (err) {
         sendErrorSSE(res, 418, `Getting metadata failed for ${fileName} ERRORS: ${err}`)
     }
