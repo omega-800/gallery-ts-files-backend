@@ -1,8 +1,14 @@
 // See https://containers.dev/implementors/json_reference/ for configuration reference
 {
-	"name": "Untitled Node.js project",
+	"name": "Gallery file server",
 	"build": {
 		"dockerfile": "Dockerfile"
 	},
-  "remoteUser": "node"
+	"extensions": [
+		"dbaeumer.vscode-eslint",
+		"esbenp.prettier-vscode"
+    ],
+  "remoteUser": "node",
+  "postCreateCommand": "npm ci && npm cache clean --force",
+  "postStartCommand": "nohup bash -c 'npm run start &' & tail -f nohup.out"
 }
